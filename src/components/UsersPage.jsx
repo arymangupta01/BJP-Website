@@ -24,7 +24,7 @@ const UsersPage = () => {
     <>
       <UsersPageNav />
       <div className="w-full h-screen bg-white relative flex">
-        <div className="h-full w-[500px] border-2 border-white overflow-y-scroll">
+        <div className="h-full w-[500px] border-4 border-black overflow-y-scroll">
           <div className="flex gap-4 px-2 py-3">
             <img
               className="rounded-full w-[120px] h-[120px]"
@@ -44,7 +44,7 @@ const UsersPage = () => {
             </ul>
           </div>
         </div>
-        <div className="border-2 border-gray-950 w-full h-full relative">
+        <div className="border-2 border-gray-950 w-full h-screen relative">
           <div className="px-20 py-10 absolute left-[100px] top-10 right-[50px] rounded-md  border-2 w-[80%] border-green-950  ">
             <div className="flex">
               <input
@@ -54,11 +54,25 @@ const UsersPage = () => {
               <MdUploadFile className="" size={40}  color="#F5821F"/>
             </div>
             <div className="">
-              <img src={image} alt="" />
+              
               <MdAddAPhoto className="cursor-pointer" onClick={handleImageclick} color="#F5821F" size={25} />
               <h1 className="text-sm font-medium text-[#F5821F]">Add Photo</h1>
               <input className="cursor-pointer" type="file" ref={inputRef} onChange={handleImageChange} style={{display: "none"}} />
             </div>
+          </div>
+          <div className="border-4 absolute top-[300px] left-[100px] border-black w-[80%] h-full">
+            <div className="flex items-center px-4 py-4 gap-4">
+            <div className="rounded-full w-[40px] h-[40px] bg-[#F5821F]">
+              <h1 className="text-white font-medium px-2.5 py-2">AS</h1>
+            </div>
+            <div className="">
+              <h1 className="text-md font-normal">Amit Shah</h1>
+            </div>
+            </div>
+            <img className="w-[80%] h-[300px] absolute left-[150px] top-[100px]   " src={image} alt="" />
+          </div>
+          <div>
+            
           </div>
         </div>
       </div>
