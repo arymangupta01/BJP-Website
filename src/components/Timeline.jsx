@@ -48,7 +48,7 @@ const Timeline = () => {
   };
 
   return (
-    <div className="flex min-h-full justify-center bg-[#FEE4C2] pt-[25px]">
+    <div className="flex min-h-full z-50 relative justify-center bg-[#FEE4C2] pt-[25px]">
       <div className="w-FULL">
         <h2 className="text-6xl font-semibold text-gray-700 mb-7">
           <span className="text-[#F5821F] text-9xl font-semibold ">PARTY</span>{" "}
