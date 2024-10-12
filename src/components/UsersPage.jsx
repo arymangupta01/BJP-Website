@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import UsersPageNav from "./UsersPageNav";
+import { MdAddAPhoto,MdUploadFile } from "react-icons/md";
+
 
 const UsersPage = () => {
+
+  const inputRef = useRef(null);
   const [image, setImage] = useState("");
+
+  const handleImageclick = () =>{
+    inputRef.current.click();
+  }
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -15,7 +23,7 @@ const UsersPage = () => {
   return (
     <>
       <UsersPageNav />
-      <div className="w-full h-screen bg-zinc-700 relative flex">
+      <div className="w-full h-screen bg-white relative flex">
         <div className="h-full w-[500px] border-2 border-white overflow-y-scroll">
           <div className="flex gap-4 px-2 py-3">
             <img
@@ -28,7 +36,7 @@ const UsersPage = () => {
             </h1>
           </div>
           <div className="px-3 py-5">
-            <ul className="">
+            <ul className="text-black">
               <li className="py-2">Bhartiya Janata Party</li>
               <li className="py-2">Lorem ipsum dolor sit</li>
               <li className="py-2">Lorem ipsum dolor sit</li>
@@ -36,15 +44,20 @@ const UsersPage = () => {
             </ul>
           </div>
         </div>
-        <div className="flex border-2 w-full h-full">
-          <div className="border-2 border-white w-ful">
-            <div className="px-20 py-10 flex ">
-              <input className="w-[700px] h-[50px] rounded-sm " type="text" />
-              <button>Submit</button>
+        <div className="border-2 border-gray-950 w-full h-full relative">
+          <div className="px-20 py-10 absolute left-[100px] top-10 right-[50px] rounded-md  border-2 w-[80%] border-green-950  ">
+            <div className="flex">
+              <input
+                className="w-[700px] h-[50px] border-2 border-red-700 rounded-sm "
+                type="text"
+              />
+              <MdUploadFile className="" size={40}  color="#F5821F"/>
             </div>
-            <div>
+            <div className="">
               <img src={image} alt="" />
-              <input type="file" onChange={handleImageChange} />
+              <MdAddAPhoto className="cursor-pointer" onClick={handleImageclick} color="#F5821F" size={25} />
+              <h1 className="text-sm font-medium text-[#F5821F]">Add Photo</h1>
+              <input className="cursor-pointer" type="file" ref={inputRef} onChange={handleImageChange} style={{display: "none"}} />
             </div>
           </div>
         </div>
