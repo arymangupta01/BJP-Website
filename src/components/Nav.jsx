@@ -11,7 +11,7 @@ const Nav = () => {
 
             <div className='flex'>
                 <ul className='flex p-5 text-white font-semibold gap-6'>
-                    <li>Hello BJP</li>
+                    <li>My BJP</li>
                     <li>State Websites</li>
                     <li>Contact Us</li>
                 </ul>
