@@ -44,23 +44,23 @@ const UsersPage = () => {
             </ul>
           </div>
         </div>
-        <div className="border-2 border-gray-950 w-full h-screen relative">
+        <div className="border-2 border-gray-950 w-full relative">
           <div className="px-20 py-10 absolute left-[100px] top-10 right-[50px] rounded-md  border-2 w-[80%] border-green-950  ">
             <div className="flex">
               <input
                 className="w-[700px] h-[50px] border-2 border-red-700 rounded-sm "
                 type="text"
               />
-              <MdUploadFile className="" size={40}  color="#F5821F"/>
+              <MdUploadFile className="mx-2" size={50}  color="#F5821F"/>
             </div>
             <div className="">
               
-              <MdAddAPhoto className="cursor-pointer" onClick={handleImageclick} color="#F5821F" size={25} />
+              <MdAddAPhoto className="cursor-pointer mx-5 mt-3" onClick={handleImageclick} color="#F5821F" size={25} />
               <h1 className="text-sm font-medium text-[#F5821F]">Add Photo</h1>
               <input className="cursor-pointer" type="file" ref={inputRef} onChange={handleImageChange} style={{display: "none"}} />
             </div>
           </div>
-          <div className="border-4 absolute top-[300px] left-[100px] border-black w-[80%] h-full">
+          <div className="border-4 absolute top-[300px] left-[100px] border-black w-[80%] h-auto">
             <div className="flex items-center px-4 py-4 gap-4">
             <div className="rounded-full w-[40px] h-[40px] bg-[#F5821F]">
               <h1 className="text-white font-medium px-2.5 py-2">AS</h1>
