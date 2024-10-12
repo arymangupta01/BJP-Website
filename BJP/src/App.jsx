@@ -4,7 +4,7 @@ import HomePage from './components/HomePage'
 import PresidentPage from './components/PresidentPage'
 import Timeline from './components/Timeline'
 import UsersPage from './components/UsersPage'
-import Footer from './components/Footer'
+// import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
       <PresidentPage/>
       <Timeline/>
       <UsersPage/>
-      <Footer/>
+      {/* <Footer/> */}
     </>
   )
 }
