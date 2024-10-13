@@ -9,7 +9,6 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-// import HomePage from './components/HomePage.jsx';
 import UsersPage from './components/UsersPage.jsx';
 import MainPage from './components/MainPage.jsx';
 
