@@ -18,7 +18,11 @@ const Nav = () => {
             </div>
 
             <div className=' flex  gap-3'>
-                <button className='text-white bg-[#F5821F] rounded-sm h-8 mt-4 p-2 text-sm'>JOIN BJP</button>
+            <Link to="/users">
+            <button className='text-white bg-[#F5821F] rounded-sm h-8 mt-4 p-2 text-sm'>
+              JOIN BJP
+            </button>
+          </Link>
                
                 <button className='text-white bg-[#F5821F] rounded-sm h-8 mt-4 p-2 mx-4 text-sm' >MAKE A DONATION</button>
             </div>
