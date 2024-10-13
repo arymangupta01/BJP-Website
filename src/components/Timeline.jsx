@@ -48,7 +48,8 @@ const Timeline = () => {
   };
 
   return (
-    <div className="flex min-h-full z-50 relative justify-center bg-[#FEE4C2] pt-[25px]">
+    <div className="h-[2150px] relative z-50 bg-[#FEE4C2] ">
+      <div className="flex z-50 relative justify-center  pt-[25px]">
       <div className="w-FULL">
         <h2 className="text-6xl font-semibold text-gray-700 mb-7">
           <span className="text-[#F5821F] text-9xl font-semibold ">PARTY</span>{" "}
@@ -77,7 +78,7 @@ const Timeline = () => {
                 <div>
                   <p className="text-lg font-semibold text-gray-600">{item.name}</p>
                   <img
-                    className="rounded-lg w-52 h-[250px]"
+                    className="rounded-lg w-52 h-[300px]"
                     src={item.image}
                     alt={item.name}
                   />
@@ -108,6 +109,7 @@ const Timeline = () => {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 };
