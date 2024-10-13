@@ -8,12 +8,14 @@ import {
 } from "react-icons/md";
 import { CiMenuKebab } from "react-icons/ci";
 import { FaAddressCard, FaIdCardAlt } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const UsersPage = () => {
   const inputRef = useRef(null);
   const [image, setImage] = useState("");
   const [uploadedImage, setUploadedImage] = useState("");
-  const [message, setMessage] = useState(""); // State to store message
+  const [message, setMessage] = useState(""); 
 
   const handleImageClick = () => {
     inputRef.current.click();
@@ -31,6 +33,17 @@ const UsersPage = () => {
     if (image) {
       setUploadedImage(image);
       setImage("");
+      toast.success("Post Published!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        
+       
+      });
     }
   };
 
@@ -41,14 +54,15 @@ const UsersPage = () => {
   return (
     <>
       <UsersPageNav />
+      <ToastContainer />
       <div className="w-full h-screen bg-white relative flex">
         <div>
-          <div className="h-auto w-[400px] border-[1px] border-gray-300 px-4 mt-10 mx-5 rounded-md">
-            <div className="flex gap-4 px-2 py-3">
+          <div className="h-auto w-[400px] border-[1px] border-gray-300 px-4 mt-10 mx-5 rounded-md shadow-lg">
+            <div className="flex gap-4 px-2 py-3 rounded-full">
               <img
-                className="rounded-full w-[120px] h-[120px]"
+                className="rounded-full border-2 border-gray-300 w-[120px] h-[120px]"
                 src="https://yt3.googleusercontent.com/rOxmp7jqiqRmG4SXcUcyiGpldwzWE7k49DrEkjUH_QjPEHNM6prk5bXl4upySUfAZL_18qSJZg=s900-c-k-c0x00ffffff-no-rj"
-                alt=""
+                alt="Amit Shah"
               />
               <h1 className="flex font-semibold text-xl items-center justify-center">
                 Amit Shah
@@ -56,26 +70,25 @@ const UsersPage = () => {
             </div>
             <div className="px-3 py-5 flex gap-3 mt-1">
               <div className="mt-1.5 mx-2 flex flex-col gap-4">
-                <FaAddressCard size={25} color="#F5821F"  />
-                <FaIdCardAlt size={25} color="#F5821F"  />
-                <MdRememberMe size={25} color="#F5821F"  />
-                <MdLocationPin size={25} color="#F5821F"  />
+                <FaAddressCard size={25} color="#F5821F" />
+                <FaIdCardAlt size={25} color="#F5821F" />
+                <MdRememberMe size={25} color="#F5821F" />
+                <MdLocationPin size={25} color="#F5821F" />
               </div>
               <div>
-              <ul className="text-black">
-                <li className="py-2">Bhartiya Janata Party</li>
-                <li className="py-2">Politician</li>
-                <li className="py-2">Member of Parliament, Lok Sabha</li>
-                <li className="py-2">Delhi, India</li>
-              </ul>
+                <ul className="text-black">
+                  <li className="py-2">Bhartiya Janata Party</li>
+                  <li className="py-2">Politician</li>
+                  <li className="py-2">Member of Parliament, Lok Sabha</li>
+                  <li className="py-2">Delhi, India</li>
+                </ul>
               </div>
-              
             </div>
           </div>
         </div>
 
         <div className=" w-full h-screen relative">
-          <div className="px-20 py-10 absolute left-[100px] top-10 right-[50px] rounded-md w-[80%] border-[1px] border-gray-300">
+          <div className="px-20 py-10 absolute left-[100px] top-10 right-[50px] rounded-md w-[80%] border-[1px] shadow-lg border-gray-300">
             <div className="flex">
               <input
                 className="w-[700px] h-[50px] border-[1px] border-[#F5821F] focus:border-[#F5821F] rounded-md transition-colors duration-500"
@@ -101,26 +114,28 @@ const UsersPage = () => {
               {image && (
                 <div className="object-contain w-[180px] h-[100px]">
                   <img
-                    className="w-full h-full -mx-4 "
+                    className="w-full h-full -mx-4"
                     src={image}
                     alt="Uploaded Preview"
                   />
                 </div>
               )}
-              <MdAddAPhoto
-                className="cursor-pointer mx-[60px] mt-3"
-                onClick={handleImageClick}
-                color="#F5821F"
-                size={25}
-              />
-              <h1 className="text-sm mx-[40px] font-medium text-[#F5821F]">
-                Add Photo
-              </h1>
+              <div className="">
+                <MdAddAPhoto
+                  className="cursor-pointer mx-[60px] mt-3"
+                  onClick={handleImageClick}
+                  color="#F5821F"
+                  size={25}
+                />
+                <h1 className="text-sm mx-[40px] font-medium text-[#F5821F]">
+                  Add Photo
+                </h1>
+              </div>
             </div>
           </div>
 
           {uploadedImage && (
-            <div className=" absolute top-[300px] left-[100px] rounded-md border-[1px] border-gray-300 w-[80%] h-screen">
+            <div className=" absolute top-[270px] left-[100px] shadow-lg rounded-md border-[1px] border-gray-300 w-[80%] h-screen">
               <div className="flex items-center px-4 py-4 gap-4">
                 <div className="rounded-full w-[40px] h-[40px] bg-[#F5821F]">
                   <h1 className="text-white font-medium px-2.5 py-2">AS</h1>
