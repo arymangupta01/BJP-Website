@@ -8,7 +8,7 @@ const SocialStreams = () => {
         <span> Streams</span>
       </h1>
       <div className="flex gap-4 px-4 mt-[55px] ">
-        <div className="w-[33%] h-[535px] border-[1px] rounded-md border-gray-700 overflow-hidden shadow-lg ">
+        <div className="w-[33%] h-[535px] border-[1px] rounded-md border-gray-200 overflow-hidden shadow-lg ">
           <div className="w-full h-[45px] bg-[#F5821F]">
             <h1 className="text-white font-semibold text-md px-3 pt-2.5 ">
               Social Videos
@@ -66,7 +66,7 @@ const SocialStreams = () => {
             />
           </div>
         </div>
-        <div className="w-[33%] h-[535px] border-[1px] rounded-md border-gray-700 overflow-hidden shadow-lg">
+        <div className="w-[33%] h-[535px] border-[1px] rounded-md border-gray-200 overflow-hidden shadow-lg">
           <div className="w-full h-[45px] bg-[#F5821F]">
             <h1 className="text-white font-semibold text-md px-3 pt-2.5 ">
               Twitter Feed
@@ -86,7 +86,7 @@ const SocialStreams = () => {
             />
           </div>
         </div>
-        <div className="w-[33%] h-[535px] border-[1px] rounded-md border-gray-700 overflow-hidden shadow-lg">
+        <div className="w-[33%] h-[535px] border-[1px] rounded-md border-gray-200 overflow-hidden shadow-lg">
           <div className="w-full h-[45px] bg-[#F5821F]">
             <h1 className="text-white font-semibold text-md px-3 pt-2.5 ">
               Instagram Feed

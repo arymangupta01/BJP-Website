@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { RiArrowLeftWideFill, RiArrowRightWideFill } from "react-icons/ri";
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
+import { Link } from "react-router-dom";
 import Appointment from "./Appointment";
 import Nav from "./Nav";
 import Draggable from "react-draggable";
@@ -182,6 +184,17 @@ const HomePage = () => {
           <SlCalender size={25} />
         </div>
       </Draggable>
+
+        <Link to='/users'>
+        <Draggable>
+        <div
+          className="fixed z-50 bottom-[105px] right-10 bg-[#F5821F] w-[50px] h-[50px] text-white p-3 rounded-full cursor-pointer "
+        >
+          <FaUserCircle size={25} />
+        </div>
+      </Draggable>
+        </Link>
+      
 
       {showAppointment && <Appointment onClose={handleAppointment} />}
     </div>
