@@ -32,14 +32,14 @@ const HomePage = () => {
   ];
 
   const [currIndex, setCurrIndex] = useState(0);
-  const [showNav, setShowNav] = useState(true); // Track the visibility of Nav
+  const [showNav, setShowNav] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > window.innerHeight) {
-        setShowNav(false); // Hide Nav after scrolling past the first section
+        setShowNav(false);
       } else {
-        setShowNav(true); // Show Nav at the top section
+        setShowNav(true);
       }
     };
 
@@ -68,7 +68,7 @@ const HomePage = () => {
 
   const handleScrollDown = () => {
     window.scrollTo({
-      top: window.innerHeight, // Scroll to the next section
+      top: window.innerHeight, 
       behavior: "smooth",
     });
   };
@@ -79,9 +79,10 @@ const HomePage = () => {
     setShowAppointment(!showAppointment);
   };
 
+  const {image} = homeData[currIndex];
+
   return (
-    <div className="w-full h-screen relative overflow-hidden">
-      {/* Conditionally render Nav based on scroll position */}
+    <div className="w-full h-screen relative overflow-hidden ">
       {showNav && (
         <div className="fixed top-0 left-0 w-full z-50">
           <Nav />
@@ -94,7 +95,7 @@ const HomePage = () => {
             <img
               className="flex justify-center items-center object-contain"
               key={index}
-              src={item.image}
+              src={image}
               alt=""
             />
           );
@@ -105,10 +106,7 @@ const HomePage = () => {
         <RiArrowLeftWideFill onClick={handlePrev} size={30} />
       </div>
 
-      <div
-        onClick={handleNext}
-        className="bg-black/20 absolute top-[50%] right-5 rounded-full text-white cursor-pointer text-2xl -translate-x-0 translate-y-[-50%] "
-      >
+      <div className="bg-black/20 absolute top-[50%] right-5 rounded-full text-white cursor-pointer text-2xl -translate-x-0 translate-y-[-50%] ">
         <RiArrowRightWideFill onClick={handleNext} size={30} />
       </div>
 
@@ -178,23 +176,20 @@ const HomePage = () => {
 
       <Draggable>
         <div
-          className="fixed z-50 bottom-10 right-10 bg-[#F5821F] w-[50px] h-[50px] text-white p-3 rounded-full cursor-pointer "
+          className="fixed z-50 bottom-10 right-10 bg-[#F5821F] w-[50px] h-[50px] text-white p-3 rounded-full cursor-pointer shadow-lg"
           onClick={handleAppointment}
         >
           <SlCalender size={25} />
         </div>
       </Draggable>
 
-        <Link to='/users'>
+      <Link to="/users">
         <Draggable>
-        <div
-          className="fixed z-50 bottom-[105px] right-10 bg-[#F5821F] w-[50px] h-[50px] text-white p-3 rounded-full cursor-pointer "
-        >
-          <FaUserCircle size={25} />
-        </div>
-      </Draggable>
-        </Link>
-      
+          <div className="fixed z-50 bottom-[105px] right-10 bg-[#F5821F] w-[50px] h-[50px] text-white p-3 rounded-full cursor-pointer shadow-lg ">
+            <FaUserCircle size={25} />
+          </div>
+        </Draggable>
+      </Link>
 
       {showAppointment && <Appointment onClose={handleAppointment} />}
     </div>
