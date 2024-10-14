@@ -46,7 +46,7 @@ const Timeline = () => {
   };
 
   return (
-    <div className="h-full relative bg-[#FBEBEA] ">
+    <div className="h-full relative bg-[#FBEBEA] mt-10 ">
       <div className="flex z-50 relative justify-center  pt-[25px]">
         <div className="w-FULL">
           <h2 className="text-6xl font-semibold text-gray-700 mb-7">
