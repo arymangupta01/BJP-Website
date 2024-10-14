@@ -2,18 +2,18 @@ import React from 'react'
 import HomePage from './HomePage'
 import PresidentPage from './PresidentPage'
 import Timeline from './Timeline'
-import Nav from './Nav'
 // import Footer from './Footer'
 import EventsAndNews from './EventsAndNews'
+import SocialStreams from './SocialStreams'
 
 const MainPage = () => {
   return (
     <div>
-        <Nav/>
         <HomePage/>
         <PresidentPage/>
         <Timeline/>
         <EventsAndNews/>
+        <SocialStreams/>
         {/* <Footer/> */}
     </div>
   )

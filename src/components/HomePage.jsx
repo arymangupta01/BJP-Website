@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { RiArrowLeftWideFill, RiArrowRightWideFill } from "react-icons/ri";
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import Appointment from "./Appointment";
+import Nav from "./Nav";
 import Draggable from "react-draggable";
 
 const HomePage = () => {
@@ -29,36 +30,40 @@ const HomePage = () => {
   ];
 
   const [currIndex, setCurrIndex] = useState(0);
-  const { image } = homeData[currIndex];
+  const [showNav, setShowNav] = useState(true); // Track the visibility of Nav
 
-  {
-    /* leftArrow function */
-  }
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > window.innerHeight) {
+        setShowNav(false); // Hide Nav after scrolling past the first section
+      } else {
+        setShowNav(true); // Show Nav at the top section
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const handlePrev = () => {
     return setCurrIndex((prevIndex) =>
       prevIndex === 0 ? homeData.length - 1 : prevIndex - 1
     );
   };
 
-  {
-    /* RightArrow function */
-  }
   const handleNext = () => {
     return setCurrIndex((prevIndex) =>
       prevIndex === homeData.length - 1 ? 0 : prevIndex + 1
     );
   };
 
-  {
-    /* Dot navigation function */
-  }
   const handleDotClick = (index) => {
     setCurrIndex(index);
   };
 
-  {
-    /* Scroll down function */
-  }
   const handleScrollDown = () => {
     window.scrollTo({
       top: window.innerHeight, // Scroll to the next section
@@ -66,9 +71,6 @@ const HomePage = () => {
     });
   };
 
-  {
-    /* Appointment form */
-  }
   const [showAppointment, setShowAppointment] = useState(false);
 
   const handleAppointment = () => {
@@ -77,25 +79,30 @@ const HomePage = () => {
 
   return (
     <div className="w-full h-screen relative overflow-hidden">
+      {/* Conditionally render Nav based on scroll position */}
+      {showNav && (
+        <div className="fixed top-0 left-0 w-full z-50">
+          <Nav />
+        </div>
+      )}
+
       <div className="flex justify-center items-center">
         {homeData.map((item, index) => {
           return (
             <img
-              className=" flex justify-center items-center object-contain"
+              className="flex justify-center items-center object-contain"
               key={index}
-              src={image}
+              src={item.image}
               alt=""
             />
           );
         })}
       </div>
 
-      {/* leftArrow */}
       <div className="bg-black/20 absolute top-[50%] left-5 rounded-full text-white cursor-pointer text-2xl -translate-x-0 translate-y-[-50%]">
         <RiArrowLeftWideFill onClick={handlePrev} size={30} />
       </div>
 
-      {/* RightArrow */}
       <div
         onClick={handleNext}
         className="bg-black/20 absolute top-[50%] right-5 rounded-full text-white cursor-pointer text-2xl -translate-x-0 translate-y-[-50%] "
@@ -103,7 +110,6 @@ const HomePage = () => {
         <RiArrowRightWideFill onClick={handleNext} size={30} />
       </div>
 
-      {/* Dot Slider */}
       <div className="absolute bottom-28 left-0 right-0 flex justify-center gap-2">
         {homeData.map((_, index) => (
           <div
@@ -116,7 +122,6 @@ const HomePage = () => {
         ))}
       </div>
 
-      {/* Social links */}
       <div className="absolute bottom-96 px-4 right-0 flex flex-col justify-center gap-5 ">
         <a
           href="https://www.facebook.com/BJP4India"
@@ -160,7 +165,6 @@ const HomePage = () => {
         </a>
       </div>
 
-      {/* Scroll down button */}
       <div
         onClick={handleScrollDown}
         className="absolute bottom-8 left-0 right-0 flex flex-col items-center justify-center cursor-pointer"
@@ -170,11 +174,9 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* For appointment booking */}
-
       <Draggable>
         <div
-          className=" fixed z-50 bottom-10 right-10 bg-[#F5821F] w-[50px] h-[50px] text-white p-3 rounded-full cursor-pointer "
+          className="fixed z-50 bottom-10 right-10 bg-[#F5821F] w-[50px] h-[50px] text-white p-3 rounded-full cursor-pointer "
           onClick={handleAppointment}
         >
           <SlCalender size={25} />
@@ -182,9 +184,6 @@ const HomePage = () => {
       </Draggable>
 
       {showAppointment && <Appointment onClose={handleAppointment} />}
-
-
-      
     </div>
   );
 };

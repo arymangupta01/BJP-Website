@@ -34,12 +34,12 @@ const EventsAndNews = () => {
   ];
 
   return (
-    <div className="w-full h-screen ">
+    <div className="w-full h-full ">
       <h1 className="font-semibold text-4xl text-center mt-5 decoration-4 underline underline-offset-[12px] decoration-[#F5821F] ">
         <span className="text-[#F5821F]">Events &</span>
         <span> News</span>
       </h1>
-      <div className="flex gap-4 px-4 mt-10">
+      <div className="flex gap-4 px-4 mt-[55px]">
         <div className="w-[33%] border-[1px] rounded-md border-gray-200 overflow-hidden shadow-lg ">
           <div className="w-full h-[45px] bg-[#F5821F]">
             <h1 className="text-white font-semibold text-md px-3 pt-2.5 ">

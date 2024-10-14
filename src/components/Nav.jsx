@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Nav = () => {
   return (
     <>
-        <div className='flex justify-between w-full fixed z-50 '>
+        <div className='flex justify-between w-full  '>
             <div>
                 <img className='w-full h-12 m-3' src="https://www.bjp.org/files/logo_1_0.png?rnd=197463428" alt="BHARTIYA JANATA PARTY" />
             </div>
