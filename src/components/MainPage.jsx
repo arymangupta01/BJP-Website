@@ -3,7 +3,8 @@ import HomePage from './HomePage'
 import PresidentPage from './PresidentPage'
 import Timeline from './Timeline'
 import Nav from './Nav'
-import Footer from './Footer'
+// import Footer from './Footer'
+import EventsAndNews from './EventsAndNews'
 
 const MainPage = () => {
   return (
@@ -12,7 +13,8 @@ const MainPage = () => {
         <HomePage/>
         <PresidentPage/>
         <Timeline/>
-        <Footer/>
+        <EventsAndNews/>
+        {/* <Footer/> */}
     </div>
   )
 }

@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer>
-      <div className="h-screen relative bg-[#F5821F]">
+      <div className="h-screen relative top-[300px] bg-[#F5821F]">
         <div className=" w-full overflow-hidden ">
           <svg
             data-name="Layer 1"

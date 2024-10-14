@@ -48,7 +48,7 @@ const Timeline = () => {
   };
 
   return (
-    <div className="h-[2150px] relative z-50 bg-[#FEE4C2] ">
+    <div className="h-[2150px] relative z-50 bg-[#FBEBEA] ">
       <div className="flex z-50 relative justify-center  pt-[25px]">
       <div className="w-FULL">
         <h2 className="text-6xl font-semibold text-gray-700 mb-7">
@@ -67,7 +67,7 @@ const Timeline = () => {
                   >
                     <FaCircle
                       size={75}
-                      className="transform hover:bg-[#F5821F] rounded-full border-[6px] border-[#F5821F] -translate-x-[1px] text-white"
+                      className="transform hover:bg-[#F5821F] rounded-full border-[6px] border-[#F5821F] -translate-x-[1px] text-[#FBEBEA]"
                     />
                     <FaCirclePlay
                       size={25}
