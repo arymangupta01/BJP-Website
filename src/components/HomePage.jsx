@@ -122,6 +122,7 @@ const HomePage = () => {
         ))}
       </div>
 
+
       <div className="absolute bottom-96 px-4 right-0 flex flex-col justify-center gap-5 ">
         <a
           href="https://www.facebook.com/BJP4India"
