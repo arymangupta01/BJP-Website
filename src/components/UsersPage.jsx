@@ -9,13 +9,39 @@ import {
 import { CiMenuKebab } from "react-icons/ci";
 import { FaAddressCard, FaIdCardAlt } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 const UsersPage = () => {
   const inputRef = useRef(null);
   const [image, setImage] = useState("");
   const [uploadedImage, setUploadedImage] = useState("");
   const [message, setMessage] = useState(""); 
+
+  const usersData = [
+    {
+      image: "https://www.bjp.org/files/photo-gallery/img-20210402-wa0117.jpg",
+      message:
+        "BJP National President Shri J.P. Nadda addressing a public meeting in East Guwahati (Assam).",
+    },
+    {
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4n0fxAyKwP2hYrw_gE6hK9EYbnb2y5DLS7Q&s",
+      message:
+        "Bharatiya Janata Party is crucial as it came at a time when the party is undertaking several initiatives to restructure the organisation ahead of the upcoming Lok Sabha elections 2024.",
+    },
+    {
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShFykW4c1EvjNi3WfGTCLAB9n-ColLHvcZBw&s",
+      message:
+        "Major shake-up in BJP’s UP leadership likely as party top brass holds meetings.",
+    },
+    {
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4n0fxAyKwP2hYrw_gE6hK9EYbnb2y5DLS7Q&s",
+      message:
+        "यूपी उपचुनाव को लेकर आज दिल्ली में बीजेपी की बड़ी बैठक, शाह-योगी समेत ये नेता होंगे शामिल",
+    },
+  ];
 
   const handleImageClick = () => {
     inputRef.current.click();
@@ -41,8 +67,6 @@ const UsersPage = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        
-       
       });
     }
   };
@@ -57,6 +81,7 @@ const UsersPage = () => {
       <ToastContainer />
       <div className="w-full h-screen bg-white relative flex">
         <div>
+          {/* Profile information */}
           <div className="h-auto w-[400px] border-[1px] border-gray-300 px-4 mt-10 mx-5 rounded-md shadow-lg">
             <div className="flex gap-4 px-2 py-3 rounded-full">
               <img
@@ -87,8 +112,10 @@ const UsersPage = () => {
           </div>
         </div>
 
-        <div className=" w-full h-screen relative">
-          <div className="px-20 py-10 absolute left-[100px] top-10 right-[50px] rounded-md w-[80%] border-[1px] shadow-lg border-gray-300">
+       
+        <div className="flex-1 overflow-y-auto p-6">
+          
+          <div className="px-20 py-10 mt-4 rounded-md w-[80%] border-[1px] shadow-lg border-gray-300 mb-6">
             <div className="flex">
               <input
                 className="w-[700px] h-[50px] border-[1px] border-[#F5821F] focus:border-[#F5821F] rounded-md transition-colors duration-500"
@@ -110,19 +137,19 @@ const UsersPage = () => {
                 style={{ display: "none" }}
               />
             </div>
-            <div className="">
+            <div>
               {image && (
-                <div className="object-contain w-[180px] h-[100px]">
+                <div className="object-contain w-[180px] h-[100px] mt-4">
                   <img
-                    className="w-full h-full -mx-4"
+                    className="w-full h-full"
                     src={image}
                     alt="Uploaded Preview"
                   />
                 </div>
               )}
-              <div className="">
+              <div className="mt-3">
                 <MdAddAPhoto
-                  className="cursor-pointer mx-[60px] mt-3"
+                  className="cursor-pointer mx-[60px]"
                   onClick={handleImageClick}
                   color="#F5821F"
                   size={25}
@@ -134,32 +161,46 @@ const UsersPage = () => {
             </div>
           </div>
 
+          {/*uploaded image post */}
           {uploadedImage && (
-            <div className=" absolute top-[270px] left-[100px] shadow-lg rounded-md border-[1px] border-gray-300 w-[80%] h-screen">
+            <div className="shadow-lg rounded-md border-[1px] border-gray-300 w-full mb-6">
               <div className="flex items-center px-4 py-4 gap-4">
                 <div className="rounded-full w-[40px] h-[40px] bg-[#F5821F]">
                   <h1 className="text-white font-medium px-2.5 py-2">AS</h1>
                 </div>
-                <div className="">
+                <div>
                   <h1 className="text-md font-normal">Amit Shah</h1>
                 </div>
-                <CiMenuKebab
-                  size={25}
-                  className="absolute left-[700px] right-0"
-                />
+                <CiMenuKebab size={25} className="ml-auto" />
               </div>
               <div>
-                <img
-                  className="w-[100%] h-[450px] absolute  top-[80px]"
-                  src={uploadedImage}
-                  alt="Posted Image"
-                />
-                <p className="absolute left-[70px] top-[550px] text-lg text-black">
-                  {message}
-                </p>
+                <img className="w-full h-[450px]" src={uploadedImage} alt="Posted Image" />
+                <p className="px-4 py-2 text-lg text-black">{message}</p>
               </div>
             </div>
           )}
+
+          {/*user posts */}
+          {usersData.map((item, index) => (
+            <div
+              key={index}
+              className="shadow-lg rounded-md border-[1px] border-gray-300 w-full mb-6"
+            >
+              <div className="flex items-center px-4 py-4 gap-4">
+                <div className="rounded-full w-[40px] h-[40px] bg-[#F5821F]">
+                  <h1 className="text-white font-medium px-2.5 py-2">AS</h1>
+                </div>
+                <div>
+                  <h1 className="text-md font-normal">Amit Shah</h1>
+                </div>
+                <CiMenuKebab size={25} className="ml-auto" />
+              </div>
+              <div>
+                <img className="w-full h-[450px]" src={item.image} alt="Posted Image" />
+                <p className="px-4 py-2 text-lg text-black">{item.message}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </>
