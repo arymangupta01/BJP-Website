@@ -60,9 +60,9 @@ const Timeline = () => {
             return (
               <ul key={index}>
                 <li className="relative flex items-baseline gap-8 pb-[40px]">
-                  <div className="absolute -inset-20  h-[280px] w-[2px] bg-gray-400 mt-[180px]">
+                  <div className="absolute -inset-20  h-[280px] w-[2px] bg-gray-400 mt-[180px] " onClick={() => handleVideoClick(item.videoLink)}>
                     
-                      <div className=" cursor-pointer transform w-[75px] h-[75px] rounded-full border-[6px] hover:bg-[#F5821F] border-[#F5821F] -translate-x-[37px] -translate-y-[90px] text-[#FBEBEA]" onClick={() => handleVideoClick(item.videoLink)} ></div>
+                      <div className=" cursor-pointer transform w-[75px] h-[75px] rounded-full border-[6px] hover:bg-[#F5821F] border-[#F5821F] -translate-x-[37px] -translate-y-[90px] text-[#FBEBEA]"  ></div>
                       <FaCirclePlay
                         size={25}
                         className="absolute cursor-pointer -top-[53px] transform -translate-x-1/2 -translate-y-1/2 hover:text-[#F5821F] text-[#F5821F]"
