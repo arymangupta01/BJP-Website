@@ -18,6 +18,7 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
+import "./FlipCard.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -91,7 +92,7 @@ const UsersPage = () => {
       {
         label: "Post's Trend Analysis",
         data: [40, 30, 30],
-        backgroundColor: ["#34D399", "#EF4444", "#D1D5DB"],
+        backgroundColor: ["#4CCB4C", "#D3D3D3", "#F04040"],
         hoverOffset: 4,
       },
     ],
@@ -117,9 +118,13 @@ const UsersPage = () => {
     },
   };
 
-  const [isTrendingOpen, setTrendingOpen] = useState(true);
+  const [isTrendingOpen, setTrendingOpen] = useState(false);
   const [isLatestOpen, setLatestOpen] = useState(false);
   const [isHistoryOpen, setHistoryOpen] = useState(false);
+
+  const [isUpcomingOpen, setUpcomingOpen] = useState(false);
+  const [isEventOpen, setEventOpen] = useState(false);
+  const [isDevelopmentOpen, setDevelopmentOpen] = useState(false);
 
   const newsItems = [
     {
@@ -137,12 +142,21 @@ const UsersPage = () => {
     },
   ];
 
+  const profileData = [
+    {profileImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPRzK8KQmnTQw87SgkSPuoIH9JK4dMGONxruaX8mN-uIWRqZtFQyhUozYfyua21DQW4go&usqp=CAU"},
+    {profileImage: "https://upload.wikimedia.org/wikipedia/commons/4/44/Amit_Shah_photographed_during_the_first_Union_Cabinet_Meeting_of_the_18th_Lok_Sabha_%28cropped%29.jpg"},
+    {profileImage: "https://upload.wikimedia.org/wikipedia/commons/4/44/Amit_Shah_photographed_during_the_first_Union_Cabinet_Meeting_of_the_18th_Lok_Sabha_%28cropped%29.jpg"},
+    {profileImage: "https://www.jkbjp.in/wp-content/uploads/2016/10/Amit-Shah-Ji-14.jpg"},
+    {profileImage: "https://lh3.googleusercontent.com/tMnos857awnWGpjTWTOlll4r8T_G9HNWuGUpwp1vyrOxgJyoEZk21l5uXw7v0CeakHPEVtBb4TH8ntpnKjrcWMlUWQ=s0"},
+    {profileImage: "https://m.media-amazon.com/images/I/71E7tAfzF2L.jpg"},
+  ];
+
   return (
     <>
       <UsersPageNav />
       <ToastContainer />
       <div className="w-full h-screen bg-white relative flex">
-        <div>
+        <div className="overflow-auto overflow-x-hidden">
           {/* Profile information */}
           <div className="h-auto w-[350px] border-[1px] border-gray-300 px-4 mt-5 mx-5 rounded-md shadow-lg">
             <div className="flex gap-4 px-2 py-3 rounded-full">
@@ -156,7 +170,7 @@ const UsersPage = () => {
               </h1>
             </div>
             <div className="px-3 py-5 flex gap-3 mt-1">
-              <div className="mt-1.5 mx-2 flex flex-col gap-4">
+              <div className="mt-1.5 mx-2 flex flex-col gap-4 ">
                 <FaAddressCard size={25} color="#F5821F" />
                 <FaIdCardAlt size={25} color="#F5821F" />
                 <MdRememberMe size={25} color="#F5821F" />
@@ -164,21 +178,99 @@ const UsersPage = () => {
               </div>
               <div>
                 <ul className="text-black">
-                  <li className="py-2">Bhartiya Janata Party</li>
-                  <li className="py-2">Politician</li>
-                  <li className="py-2">Member of Parliament, Lok Sabha</li>
-                  <li className="py-2">Delhi, India</li>
+                  <li className="py-2 border-t-[1px] border-gray-300">Bhartiya Janata Party</li>
+                  <li className="py-2 border-t-[1px] border-gray-300">Politician</li>
+                  <li className="py-2 border-t-[1px] border-gray-300">Member of Parliament, Lok Sabha</li>
+                  <li className="py-2 border-t-[1px] border-gray-300">Delhi, India</li>
                 </ul>
               </div>
             </div>
           </div>
+          {/* Drag n Drop information */}
+          <div className="w-[350px] mx-auto mt-5 border-[1px] border-gray-300 bg-white rounded-lg shadow-md p-3">
+            {/* Upcoming Events */}
+            <div className="pb-2">
+              <button
+                onClick={() => setUpcomingOpen(!isUpcomingOpen)}
+                className="text-left w-full flex items-center justify-between font-semibold text-gray-700"
+              >
+                <span>Upcoming Events</span>
+                <span>
+                  {isUpcomingOpen ? <FaChevronUp /> : <FaChevronDown />}
+                </span>
+              </button>
+              {isUpcomingOpen && (
+                <ul className="mt-4">
+                  {newsItems.map((item, index) => (
+                    <li
+                      key={index}
+                      className="flex items-center py-2 space-x-2 border-t"
+                    >
+                      <span>
+                        {item.trend === "up" ? (
+                          <FaArrowUp className="text-green-500" />
+                        ) : (
+                          <FaArrowDown className="text-red-500" />
+                        )}
+                      </span>
+                      <span className="text-sm text-gray-700">{item.text}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+
+            {/* Event History */}
+            <div className="border-t py-2">
+              <button
+                onClick={() => setEventOpen(!isEventOpen)}
+                className="text-left w-full flex items-center justify-between font-semibold text-gray-700"
+              >
+                <span>Event History</span>
+                <span>
+                  {isEventOpen ? <FaChevronUp /> : <FaChevronDown />}
+                </span>
+              </button>
+              {isEventOpen && (
+                <p className="mt-2 text-sm text-gray-600">
+                 Event history content...
+                </p>
+              )}
+            </div>
+
+            {/* Development */}
+            <div className="border-t py-2">
+              <button
+                onClick={() => setDevelopmentOpen(!isDevelopmentOpen)}
+                className="text-left w-full flex items-center justify-between font-semibold text-gray-700"
+              >
+                <span>Development</span>
+                <span>
+                  {isDevelopmentOpen ? <FaChevronUp /> : <FaChevronDown />}
+                </span>
+              </button>
+              {isDevelopmentOpen && (
+                <p className="mt-2 text-sm text-gray-600">Development content...</p>
+              )}
+            </div>
+          </div>
+          {/* Profile photos */}
+          <div className="flex flex-wrap w-[350px] mt-10 mb-5 mx-auto ">
+              {profileData.map((item,index)=>{
+                return(
+                  <div key={index} className="w-[105px] h-[130px] mx-1 cursor-pointer hover:border-[#F5821F] border-[0px] transition-colors duration-500">
+                    <img className="w-full h-full" src={item.profileImage} alt="Profile"/>
+                  </div>
+                )
+              })}
+          </div>
         </div>
 
-        <div className="flex-1 overflow-y-visible">
-          <div className="px-5 py-5 mt-5 rounded-md w-[700px] border-[1px] shadow-lg border-gray-300">
+        <div className="flex-1 overflow-y-auto no-scrollbar ">
+          <div className="px-5 py-5 mt-5 rounded-md w-[732px] border-[1px] shadow-lg border-gray-300">
             <div className="flex">
               <input
-                className="w-[700px] h-[50px] border-[1px] border-[#F5821F] focus:border-[#F5821F] rounded-md transition-colors duration-500"
+                className="w-[750px] h-[50px] border-[1px] border-[#F5821F] focus:border-[#F5821F] rounded-md transition-colors duration-500"
                 type="text"
                 onChange={handleMessageChange}
                 placeholder="Enter a message for the post"
@@ -260,7 +352,7 @@ const UsersPage = () => {
             </div>
           </div>
 
-          <div className=" w-[700px] h-[180px] flex gap-10 items-center justify-around">
+          <div className=" w-[732px] h-[180px] flex gap-10 items-center justify-around">
             <div>
               <FaHeart className="ml-3 mb-2" size={30} color="#FD4FB3" />
               <h1 className="font-bold text-3xl">16K</h1>
@@ -284,7 +376,7 @@ const UsersPage = () => {
 
           {/*uploaded image post */}
           {uploadedImage && (
-            <div className="shadow-lg rounded-md border-[1px] border-gray-300 w-[700px] mb-6">
+            <div className="shadow-lg rounded-md border-[1px] border-gray-300 w-[732px] mb-6">
               <div className="flex items-center px-4 py-4 gap-4">
                 <div className="rounded-full w-[40px] h-[40px] bg-[#F5821F]">
                   <h1 className="text-white font-medium px-2.5 py-2">AS</h1>
@@ -309,7 +401,7 @@ const UsersPage = () => {
           {usersData.map((item, index) => (
             <div
               key={index}
-              className="shadow-lg rounded-md border-[1px] border-gray-300 w-[700px] mb-6"
+              className="shadow-lg rounded-md border-[1px] border-gray-300 w-[732px] mb-6"
             >
               <div className="flex items-center px-4 py-4 gap-4">
                 <div className="rounded-full w-[40px] h-[40px] bg-[#F5821F]">
@@ -332,7 +424,7 @@ const UsersPage = () => {
           ))}
         </div>
 
-        <div className="w-[380px] h-full overflow-y-auto ">
+        <div className="w-[380px] h-screen overflow-y-auto ">
           <div className="w-[320px] mx-auto mt-5 p-5 border-[1px] rounded-lg shadow-lg  border-gray-300">
             <h1 className="text-center text-lg font-semibold">
               Post's Trend Analysis
