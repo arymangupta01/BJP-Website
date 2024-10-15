@@ -8,7 +8,7 @@ const SocialStreams = () => {
         <span> Streams</span>
       </h1>
       <div className="flex gap-4 px-4 mt-[55px] ">
-        <div className="w-[33%] h-[535px] border-[1px] rounded-md border-gray-200 overflow-hidden shadow-lg ">
+        <div className="w-[33%] h-[590px] border-[1px] rounded-md border-gray-200 overflow-hidden shadow-lg ">
           <div className="w-full h-[45px] bg-[#F5821F]">
             <h1 className="text-white font-semibold text-md px-3 pt-2.5 ">
               Social Videos
@@ -22,7 +22,7 @@ const SocialStreams = () => {
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="rounded-lg shadow-lg w-[420px] h-[250px] my-2 "
+              className="rounded-lg shadow-lg w-[466px] h-[250px] my-2 "
               />
 
             <iframe
@@ -32,7 +32,7 @@ const SocialStreams = () => {
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
-              className="rounded-lg shadow-lg w-[420px] h-[250px] my-2"
+              className="rounded-lg shadow-lg w-[466px] h-[250px] my-2"
               />
 
             <iframe
@@ -42,7 +42,7 @@ const SocialStreams = () => {
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
-              className="rounded-lg shadow-lg w-[420px] h-[250px] my-2"
+              className="rounded-lg shadow-lg w-[466px] h-[250px] my-2"
               />
 
             <iframe
@@ -52,7 +52,7 @@ const SocialStreams = () => {
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
-              className="rounded-lg shadow-lg w-[420px] h-[250px] my-2"
+              className="rounded-lg shadow-lg w-[466px] h-[250px] my-2"
               />
 
             <iframe
@@ -62,11 +62,11 @@ const SocialStreams = () => {
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
-              className="rounded-lg shadow-lg w-[420px] h-[250px]my-2 "
+              className="rounded-lg shadow-lg w-[466px] h-[250px]my-2 "
             />
           </div>
         </div>
-        <div className="w-[33%] h-[535px] border-[1px] rounded-md border-gray-200 overflow-hidden shadow-lg">
+        <div className="w-[33%] h-[590px] border-[1px] rounded-md border-gray-200 overflow-hidden shadow-lg">
           <div className="w-full h-[45px] bg-[#F5821F]">
             <h1 className="text-white font-semibold text-md px-3 pt-2.5 ">
               Twitter Feed
@@ -81,12 +81,12 @@ const SocialStreams = () => {
               allowFullScreen="true"
               title="Twitter Timeline"
               src="https://syndication.twitter.com/srv/timeline-profile/screen-name/BJP4India?dnt=false&embedId=twitter-widget-0&features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&frame=false&hideBorder=false&hideFooter=false&hideHeader=false&hideScrollBar=false&lang=en&origin=https%3A%2F%2Ftestpublic.ashutoshtech.com%2F%23timeline-events&sessionId=42b92da6c650655f2cf18777a87644bdb59b513d&showHeader=true&showReplies=false&transparent=false&widgetsVersion=2615f7e52b7e0%3A1702314776716"
-              style={{ width: "435px", height: "800px", display: "block" }}
+              style={{ width: "482px", height: "800px", display: "block" }}
               className="border-0"
             />
           </div>
         </div>
-        <div className="w-[33%] h-[535px] border-[1px] rounded-md border-gray-200 overflow-hidden shadow-lg">
+        <div className="w-[33%] h-[590px] border-[1px] rounded-md border-gray-200 overflow-hidden shadow-lg">
           <div className="w-full h-[45px] bg-[#F5821F]">
             <h1 className="text-white font-semibold text-md px-3 pt-2.5 ">
               Instagram Feed
@@ -99,7 +99,7 @@ const SocialStreams = () => {
                 allowTransparency="true"
                 allowFullScreen="true"
                 frameBorder="0"
-                height="481" // can be adjusted as needed
+                height="600" // can be adjusted as needed
                 data-instgrm-payload-id="instagram-media-payload-0"
                 scrolling="no"
                 style={{
@@ -109,7 +109,7 @@ const SocialStreams = () => {
                   boxShadow: "none",
                   display: "block",
                   margin: "12px 0px 12px",
-                  width: "437px",
+                  width: "482px",
                   padding: "0px",
                 }}
               />
