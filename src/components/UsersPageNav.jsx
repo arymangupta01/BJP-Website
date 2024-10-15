@@ -9,7 +9,7 @@ const UsersPageNav = () => {
   };
 
   return (
-    <div className="w-full h-[70px] bg-[#F5821F] relative z-50 flex items-center justify-between ">
+    <div className="w-full h-[70px] bg-[#F5821F] relative z-50 flex items-center justify-between shadow-xl ">
       <Link to="/">
         <div>
           <img
