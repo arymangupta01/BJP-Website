@@ -1,5 +1,7 @@
 import React from "react";
 import "./FlipCard.css";
+import { FaSquareFacebook, FaSquareXTwitter } from "react-icons/fa6";
+import { FaShare } from "react-icons/fa";
 
 const Journey = () => {
   const journeyData = [
@@ -8,7 +10,7 @@ const Journey = () => {
         "https://www.constitutionofindia.net/wp-content/uploads/2022/10/SPMookerjee.jpg",
       title: "Dr Syama Prasad Mookerjee",
       description:
-        "Dr Syama Prasad Mookerjee was born on 6 July 1901. He graduated from Calcutta University and became the fellow of the senate in 1923. In 1924 he enrolled himself as an advocate in Calcutta High court. Later on he left for England in 1926 and was admitted as a barrister from Lincoln’s Inn in 1927.",
+        "Dr Syama Prasad Mookerjee was born on 6 July 1901. He graduated from Calcutta University and became the fellow of the senate in 1923. In 1924 he enrolled himself as an advocate in Calcutta High court. Later on he left for England in 1926 and was admitted as a barrister from Lincoln’s Inn in 1927. Dr Syama Prasad Mookerjee was born on 6 July 1901. He graduated from Calcutta University and became the fellow of the senate in 1923. In 1924 he enrolled himself as an advocate. ",
     },
     {
       image:
@@ -29,7 +31,7 @@ const Journey = () => {
         "https://www.constitutionofindia.net/wp-content/uploads/2022/10/SPMookerjee.jpg",
       title: "Dr. Murli Manohar Joshi",
       description:
-        "Dr. Murli Manohar Joshi is an Indian politician and is a leading member of the Bharatiya Janata Party. He was the President of BJP between the period of 1991 & 1993. Presently he is the MP for Kanpur. Later in the NDA regime, he became the Union Human Resources Development minister of India. He is familiar for his vision on Indian socio-politics and for his association with the RSS.",
+        "Dr. Murli Manohar Joshi is an Indian politician and is a leading member of the Bharatiya Janata Party. He was the President of BJP between the period of 1991 & 1993. Presently he is the MP for Kanpur. Later in the NDA regime, he became the Union Human Resources Development minister of India. He is familiar for his vision on Indian socio-politics and for his association with the RSS. Later in the NDA regime, he became the Union Human Resources Development minister of India. He is familiar for his vision.",
     },
     {
       image:
@@ -43,21 +45,21 @@ const Journey = () => {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3H2C5NPOyUw6SQQY1tDyMUbDyUhgVOICkPg&s",
       title: "Late Shri K. Jana Krishnamurthy",
       description:
-        "Krishnamurthy is a former Union Law Minister and a member of Indian parliament. He was the second person from Tamil Nadu after Kamaraj to lead a national party in India. Being an active member of Rashtriya Swayamsevak Sangh (RSS), Krishnamurthy was elected as the Bharatiya Jana Sangh’s General Secretary in Tamil Nadu.",
+        "Krishnamurthy is a former Union Law Minister and a member of Indian parliament. He was the second person from Tamil Nadu after Kamaraj to lead a national party in India. Being an active member of Rashtriya Swayamsevak Sangh (RSS), Krishnamurthy was elected as the Bharatiya Jana Sangh’s General Secretary in Tamil Nadu.  Krishnamurthy was elected as the Bharatiya Jana Sangh’s General Secretary in Tamil Nadu",
     },
     {
       image:
         "https://www.constitutionofindia.net/wp-content/uploads/2022/10/SPMookerjee.jpg",
       title: "Shri Bangaru Laxman",
       description:
-        "Bangaru Laxman was a member of Bharatiya Janata Party and Rashtriya Swayamsevak Sangh (RSS). He was President of the party from 2000-2001 and served as a minister of state for railways in Indian Government from 1999 to 2000.",
+        "Bangaru Laxman was a member of Bharatiya Janata Party and Rashtriya Swayamsevak Sangh (RSS). He was President of the party from 2000-2001 and served as a minister of state for railways in Indian Government from 1999 to 2000.Bangaru Laxman was a member of Bharatiya Janata Party and Rashtriya Swayamsevak Sangh (RSS). He was President of the party from 2000-2001 and served as a minister of state for railways in Indian Government from 1999 to 2000.Bangaru Laxman was a member of Bharatiya Janata.",
     },
     {
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3H2C5NPOyUw6SQQY1tDyMUbDyUhgVOICkPg&s",
       title: "Shri Rajnath Singh",
       description:
-        "Shri Rajnath Singh is a famous Indian politician who is presently working as the Union Minister of Home Affairs in the administration of Narendra Modi. He is also the President of the ruling party, Bharatiya Janata Party (BJP). Earlier he was the Chief Minister of Uttar Pradesh and Cabinet Minister during the period of Vajpayee Government.",
+        "Shri Rajnath Singh is a famous Indian politician who is presently working as the Union Minister of Home Affairs in the administration of Narendra Modi. He is also the President of the ruling party, Bharatiya Janata Party (BJP). Earlier he was the Chief Minister of Uttar Pradesh and Cabinet Minister during the period of Vajpayee Government.Earlier he was the Chief Minister of Uttar Pradesh and Cabinet Minister during the period of Vajpayee Government.Earlier he was the Chief Minister of Uttar Pradesh.",
     },
   ];
 
@@ -67,28 +69,44 @@ const Journey = () => {
         <span>Founders Of</span>
         <span className="text-[#F5821F]"> BJP</span>
       </h1>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap min-w-0 box-border">
         {journeyData.map((item, index) => {
           return (
-            <div className=" ">
-              <div className="flip-card rounded-lg border-[1px] mx-4 border-gray-200 shadow-lg w-[310px] h-[400px] mt-[60px] overflow-hidden">
-                <div className="flip-card-inner relative">
-                  <div className="absolute w-full flip-card-front bg-white">
+            <div className="">
+              <div className="flip-card rounded-lg border-[1px] mx-4 border-gray-200 shadow-lg w-[310px] hover:h-screen mt-[60px] overflow-hidden">
+                <div className="flip-card-inner">
+                  <div className="relative w-[100%] flip-card-front bg-white">
                     <img
                       src={item.image}
                       alt="Placeholder"
                       className="w-full h-[280px]"
                     />
-                    <h3 className="mt-4 text-xl font-semibold">{item.title}</h3>
+                    <h3 className="mt-4 m-3 text-xl font-medium">
+                      {item.title}
+                    </h3>
+                    <div className="flex gap-2 m-3">
+                      <FaSquareFacebook size={25} color="#F5821F" />
+                      <FaSquareXTwitter size={25} color="#F5821F" />
+                      <FaShare size={25} color="#F5821F" />
+                      <h1 className="text-[#F5821F] mx-4 cursor-pointer">Learn More</h1>
+                    </div>
                   </div>
-                  <div className="absolute w-full flip-card-back bg-white">
+                  <div className="absolute w-[100%] left-[0px] top-[0px] flip-card-back bg-white">
                     <img
                       src={item.image}
                       alt="Placeholder"
                       className="w-full h-[280px]"
                     />
-                    <h3 className="mt-4 text-xl font-semibold">{item.title}</h3>
-                    <p className="text-sm">{item.description}</p>
+                    <h3 className="mt-4 m-3 text-xl font-medium">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm m-3">{item.description}</p>
+                    <div className="flex gap-2 m-3">
+                      <FaSquareFacebook size={25} color="#F5821F" />
+                      <FaSquareXTwitter size={25} color="#F5821F" />
+                      <FaShare size={25} color="#F5821F" />
+                      <h1 className="text-[#F5821F] mx-4 cursor-pointer">Learn More</h1>
+                    </div>
                   </div>
                 </div>
               </div>

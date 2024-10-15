@@ -49,11 +49,11 @@ const Timeline = () => {
     <div className="h-full relative bg-[#FBEBEA] mt-10 ">
       <div className="flex z-50 relative justify-center  pt-[25px]">
         <div className="w-FULL">
-          <h2 className="text-6xl font-semibold text-gray-700 mb-7">
-            <span className="text-[#F5821F] text-9xl font-semibold ">
-              PARTY
+          <h2 className="text-5xl font-semibold text-gray-700 mb-[60px] underline underline-offset-[13px] decoration-[#F5821F]">
+            <span className="text-[#F5821F] text-5xl font-semibold ">
+              Party
             </span>{" "}
-            PRESIDENTS
+            President
           </h2>
 
           {timelineData.map((item, index) => {
