@@ -69,12 +69,12 @@ const Journey = () => {
         <span>Founders Of</span>
         <span className="text-[#F5821F]"> BJP</span>
       </h1>
-      <div className="flex flex-wrap min-w-0 box-border">
+      <div className="flex flex-wrap min-w-0 box-border w-[100%]">
         {journeyData.map((item, index) => {
           return (
             <div className="">
               <div className="flip-card rounded-lg border-[1px] mx-4 border-gray-200 shadow-lg w-[310px] hover:h-screen mt-[60px] overflow-hidden">
-                <div className="flip-card-inner">
+                <div className="flip-card-inner w-[100%]">
                   <div className="relative w-[100%] flip-card-front bg-white">
                     <img
                       src={item.image}
