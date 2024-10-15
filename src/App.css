@@ -1,0 +1,59 @@
+/* Apply Tailwind classes to the main calendar container */
+.my-calendar {
+    @apply border-none rounded-lg;
+  }
+  
+  /* Customize navigation (month/year selector) */
+  .react-calendar__navigation {
+    @apply mb-4 flex justify-between items-center text-[#F5821F];
+  }
+  
+  /* Customize the month and year display */
+  .react-calendar__navigation__label {
+    @apply font-semibold text-lg;
+  }
+  
+  /* Style the calendar tiles (days) */
+  .react-calendar__tile {
+    @apply text-center p-2 hover:bg-gray-100 rounded-full;
+  }
+  
+  /* Style for the current day (today) */
+  .react-calendar__tile--now {
+    @apply border border-orange-500 rounded-full;
+  }
+  
+  /* Style for the selected day */
+  .react-calendar__tile--active {
+    @apply bg-orange-500 text-white rounded-full;
+  }
+  
+  /* Style for weekends */
+  .react-calendar__month-view__days__day--weekend {
+    @apply text-black;
+  }
+  
+  /* Remove default padding/margin in the entire calendar */
+  .react-calendar {
+    @apply p-0 m-0;
+  }
+  
+  .react-calendar__month-view__weekdays__weekday {
+    list-style-type: none; /* Removes any bullets if it's treated as a list */
+    text-decoration: none; /* Removes any underline */
+    border-bottom: none; /* Removes any border under the text */
+  }
+
+  /* Remove dots or underlines under the weekday labels */
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none !important; /* Ensure no underline or decoration */
+  border-bottom: none !important;   /* Remove any bottom border */
+  outline: none !important;
+  @apply text-[#F5821F]         /* Remove outline (if any) */
+}
+
+/* Optional: If there's padding or margin causing spacing, you can adjust it */
+.react-calendar__month-view__weekdays__weekday {
+  padding-bottom: 1 !important;
+  margin-bottom: 0 !important;
+}
