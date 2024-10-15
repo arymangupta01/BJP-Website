@@ -64,7 +64,7 @@ const Journey = () => {
   ];
 
   return (
-    <div className="w-full">
+    <div id="sec3" className="w-full">
       <h1 className="font-semibold text-5xl text-center mt-8 decoration-4 underline underline-offset-[15px] decoration-[#F5821F] ">
         <span>Founders Of</span>
         <span className="text-[#F5821F]"> BJP</span>

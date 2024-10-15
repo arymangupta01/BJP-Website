@@ -24,7 +24,7 @@ const PresidentPage = () => {
   })
 
   return (
-    <div className='w-full h-screen relative overflow-hidden '>
+    <div id="sec2" className='w-full h-screen relative overflow-hidden '>
       <div className="flex justify-center items-center">
         {presidentData.map((item, index) => {
           return (

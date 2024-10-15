@@ -6,7 +6,7 @@ import { FaLinkedin, FaTwitter, FaYoutube, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer id="sec7">
       <div className="relative mt-[90px] bg-[#F5821F]">
         <div className="w-full overflow-hidden">
           <svg

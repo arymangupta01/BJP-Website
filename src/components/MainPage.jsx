@@ -6,11 +6,13 @@ import Footer from './Footer'
 import EventsAndNews from './EventsAndNews'
 import SocialStreams from './SocialStreams'
 import Journey from './Journey'
+import VerticalDot from './VerticalDot'
 
 const MainPage = () => {
   return (
     <div>
         <HomePage/>
+        <VerticalDot/>
         <PresidentPage/>
         <Journey/>
         <Timeline/>

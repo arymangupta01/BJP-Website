@@ -2,7 +2,7 @@ import React from "react";
 
 const SocialStreams = () => {
   return (
-    <div className="w-full h-screen ">
+    <div id="sec6" className="w-full h-screen ">
       <h1 className="font-semibold text-4xl text-center mt-8 decoration-4 underline underline-offset-[12px] decoration-[#F5821F] ">
         <span className="text-[#F5821F]">Social</span>
         <span> Streams</span>

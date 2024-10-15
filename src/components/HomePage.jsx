@@ -82,7 +82,7 @@ const HomePage = () => {
   const {image} = homeData[currIndex];
 
   return (
-    <div className="w-full h-screen relative overflow-hidden ">
+    <div id="sec1" className="w-full h-screen relative overflow-hidden ">
       {showNav && (
         <div className="fixed top-0 left-0 w-full z-50">
           <Nav />

@@ -34,7 +34,7 @@ const EventsAndNews = () => {
   ];
 
   return (
-    <div className="w-full h-full ">
+    <div id="sec5" className="w-full h-full">
       <h1 className="font-semibold text-4xl text-center mt-5 decoration-4 underline underline-offset-[12px] decoration-[#F5821F] ">
         <span className="text-[#F5821F]">Events &</span>
         <span> News</span>
