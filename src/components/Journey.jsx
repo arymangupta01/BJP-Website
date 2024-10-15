@@ -69,7 +69,7 @@ const Journey = () => {
         <span>Founders Of</span>
         <span className="text-[#F5821F]"> BJP</span>
       </h1>
-      <div className="flex flex-wrap min-w-0 box-border w-[100%]">
+      <div className="flex flex-wrap w-[100%]">
         {journeyData.map((item, index) => {
           return (
             <div className="">
