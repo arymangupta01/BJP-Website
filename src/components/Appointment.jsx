@@ -4,15 +4,15 @@ import "react-calendar/dist/Calendar.css";
 import { FaSmile } from "react-icons/fa";
 import "../App.css";
 
-import { AiOutlineClose } from "react-icons/ai";
-
 const Appointment = ({ onClose }) => {
-  const [name, setName] = useState("");
-  const [mobile, setMobile] = useState("");
   const [reason, setReason] = useState("");
-  const [priority, setPriority] = useState(""); // Default priority
-  const [timeSlot, setTimeSlot] = useState(""); // Selected time slot
+  const [priority, setPriority] = useState("");
+  const [timeSlot, setTimeSlot] = useState("");
   const [date, setDate] = useState(new Date());
+  const [selectedSlot, setSelectedSlot] = useState(null);
+  const [isClicked, setIsClicked] = useState(false);
+  const [hasError, setHasError] = useState(false);
+  const [inputValue, setInputValue] = useState("");
 
   const onChange = (newDate) => {
     setDate(newDate);
@@ -20,65 +20,55 @@ const Appointment = ({ onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Appointment Booked!
-      Name: ${name}
-      Mobile: ${mobile}
-      Date: ${date}
-      Reason: ${reason}
-      Priority: ${priority}
-      Time Slot: ${timeSlot}`);
+    alert(
+      `Appointment Booked! \nName: ${inputValue} \nDate: ${date} \nReason: ${reason} \nPriority: ${priority} \nTime Slot: ${timeSlot}`
+    );
     onClose();
   };
 
-  const formatShortWeekday = (locale, date) => {
-    return date.toLocaleDateString(locale, { weekday: "short" }).charAt(0);
+  const handleBlur = () => {
+    if (!inputValue.trim()) {
+      setHasError(true);
+      setIsClicked(false);
+    } else {
+      setIsClicked(false);
+      setHasError(false);
+    }
+  };
+
+  const handleFocus = () => {
+    setIsClicked(true);
+    setHasError(false);
   };
 
   const timeSlots = [
     { id: 1, time: "10:00 - 12:00 PM" },
     { id: 2, time: "12:00 - 2:00 PM" },
-    { id: 3, time: "4:00 - 6:00 PM" },
-    { id: 4, time: "4:00 - 6:00 PM" },
+    { id: 3, time: "12:00 - 2:00 PM" },
   ];
 
-  // State to track the selected time slot
-  const [selectedSlot, setSelectedSlot] = useState(null);
-
-  // Function to handle time slot click
-  const handleSlotClick = (id) => {
-    setSelectedSlot(id); // Set the selected slot ID
-  };
-
-  const [isFocused, setIsFocused] = useState(false);
-  const [hasError, setHasError] = useState(false);
-
-  // Validate input on blur
-  const handleBlur = () => {
-    setIsFocused(false);
-    if (!name.trim()) {
-      setHasError(true); // Trigger error if name is empty
-    } else {
-      setHasError(false); // Remove error if valid input
-    }
+  const formatShortWeekday = (locale, date) => {
+    return date.toLocaleDateString(locale, { weekday: "short" }).charAt(0);
   };
 
   return (
-    <div className="fixed w-[440px] inset-0 flex z-50 bg-black bg-opacity-50 overflow-y-scroll overflow-x-hidden">
-      <div className="bg-white p-5 h-[115%] rounded shadow-md w-full">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-semibold text-[#F5821F]">
+    <div
+      className="fixed inset-0 flex z-50 bg-black bg-opacity-50 overflow-y-scroll overflow-x-hidden h-full"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white p-5 shadow-md w-full h-[110%] max-w-md"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex mb-4">
+          <h2 className="text-2xl mx-auto font-medium text-[#F5821F]">
             Book Appointment
           </h2>
-          <AiOutlineClose
-            size={21}
-            onClick={onClose}
-            className="cursor-pointer text-[#F5821F]"
-          />
         </div>
 
         <form onSubmit={handleSubmit}>
           {/* Calendar */}
-          <div className="w-[420px] mb-3">
+          <div className="w-[420px] mb-4 mx-[20px] font-light">
             <Calendar
               onChange={onChange}
               formatShortWeekday={formatShortWeekday}
@@ -89,88 +79,142 @@ const Appointment = ({ onClose }) => {
               showNeighboringMonth={false}
             />
           </div>
+
           {/* Time Slot */}
-          <div className="">
+          <div>
             <h2 className="text-xl font-semibold mb-4 mx-1">Choose Slot</h2>
-            <div className="flex flex-row flex-wrap w-[420px] gap-2 mb-4 ">
-              {" "}
-              {/* Changed to flex-row and added space-x-4 for horizontal spacing */}
-              {timeSlots.map((slot) => (
-                <div
-                  key={slot.id}
-                  onClick={() => handleSlotClick(slot.id)}
-                  className={`flex flex-row flex-wrap w-[190px] mb-1 space-x-2 items-center cursor-pointer px-3 py-2 rounded-full border-2 transition-colors
-              ${
-                selectedSlot === slot.id
-                  ? "bg-green-500 text-white border-green-500"
-                  : "bg-white text-green-500 border-green-500"
-              }`}
-                >
-                  <FaSmile className="mr-2" />
-                  <span>{slot.time}</span>
-                </div>
-              ))}
+            <div className="flex flex-row flex-wrap gap-2 mb-4">
+              <div className="flex flex-row flex-wrap w-[420px] gap-2 mb-4 ">
+                {timeSlots.map((slot) => (
+                  <div
+                    key={slot.id}
+                    onClick={() => setSelectedSlot(slot.id)}
+                    className={`flex items-center cursor-pointer px-3 py-2 rounded-full border-[1px] transition-colors
+                  ${
+                    selectedSlot === slot.id
+                      ? "bg-[#66BB6A] text-black border-green-400"
+                      : "bg-white text-[#66BB6A] border-[#66BB6A]"
+                  }`}
+                  >
+                    <FaSmile className="mr-2" />
+                    <span>{slot.time}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
+
           {/* Name */}
-          <div className="mb-3">
+          <div className="mb-4 ">
             <fieldset
-              className={`border-2 rounded-lg p-2 ${
-                isFocused ? "border-[#F5821F]" : "border-white"
+              className={`border-2 w-[400px]  rounded-md ${
+                isClicked ? "border-[#f5821F]" : hasError ? "border-white" : ""
               }`}
             >
-              {(isFocused || hasError) && (
-                <legend className="px-1 text-[#F5821F]">Name</legend>
-              )}
+              {isClicked && !hasError ? (
+                <legend className="mx-3 text-[#F5821F]">Name</legend>
+              ) : null}
+
               <input
+                className={`p-2 w-[400px] border-[1px] rounded-md ${
+                  isClicked ? "border-white" : "border-black"
+                }          focus:outline-none ${
+                  hasError ? "border-red-600" : ""
+                } ${
+                  hasError
+                    ? "placeholder:text-red-600"
+                    : "placeholder:text-gray-800"
+                } `}
                 type="text"
-                className={`w-full border rounded ${
-                  isFocused ? "" : "p-2"
-                }  transition-colors duration-200 ${
-                  hasError ? "border-red-500" : ""
-                }  focus:outline-none focus:border-white focus:ring-2 focus:ring-[#f5831f00]`}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
                 required
-                placeholder={isFocused || hasError ? "" : "Name"}
-                onFocus={() => setIsFocused(true)}
-                onBlur={handleBlur}
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onFocus={handleFocus}
+                onClick={() => setIsClicked(true)}
+                onBlur={() => handleBlur()}
+                placeholder={isClicked && !hasError ? "" : "Name"}
               />
-              {/* Display warning message */}
+
+              {hasError && <p className="text-red-500">Name is required!</p>}
+            </fieldset>
+          </div>
+
+          {/* Reason for Appointment */}
+          <div className="mb-4 ">
+            <fieldset
+              className={`border-2 w-[400px] rounded-md ${
+                isClicked ? "border-[#f5821F]" : hasError ? "border-white" : ""
+              }`}
+            >
+              {isClicked && !hasError ? (
+                <legend className="mx-3 text-[#F5821F]">
+                  Reason for Appointment
+                </legend>
+              ) : null}
+
+              <input
+                className={`p-2 w-[400px] border-[1px] rounded-md ${
+                  isClicked ? "border-white" : "border-black"
+                }          focus:outline-none ${
+                  hasError ? "border-red-600" : ""
+                } ${
+                  hasError
+                    ? "placeholder:text-red-600"
+                    : "placeholder:text-gray-800"
+                } `}
+                type="text"
+                required
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onFocus={handleFocus}
+                onClick={() => setIsClicked(true)}
+                onBlur={() => handleBlur()}
+                placeholder={
+                  isClicked && !hasError ? "" : "Reason for Appointment"
+                }
+              />
+
               {hasError && (
-                <p className={`text-red-500 text-sm mt-1`}>
-                  Please fill in the name.
+                <p className="text-red-500">
+                  Reason for appointment is required!
                 </p>
               )}
             </fieldset>
           </div>
 
-          {/* Reason for Appointment */}
-          <div className="mb-3">
-            <input
-              type="text"
-              className="w-full border rounded p-2"
-              value={reason}
-              onChange={(e) => setReason(e.target.value)}
-              required
-              placeholder="Reason for Appointment"
-            />
-          </div>
-          {/* Priority */}
-          <div className="mb-3">
-            <select
-              className="w-full border rounded p-2"
-              value={priority}
-              onChange={(e) => setPriority(e.target.value)}
-              required
+          {/* Priority Select */}
+          <div className="mb-4">
+            <fieldset
+              className={`border-[1px] w-[400px] rounded-md ${
+                isClicked ? "border-[#f5821F]" : hasError ? "border-white" : ""
+              }`}
             >
-              <option value="" disabled hidden style={{ color: "#D3D3D3" }}>
-                Select Priority
-              </option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
+              {isClicked && !hasError ? (
+                <legend className="mx-3 text-[#F5821F]">Priority</legend>
+              ) : null}
+
+              <select
+                className={`w-full border rounded p-2 ${
+                  isClicked ? "border-white" : "border-black"
+                } ${hasError ? "border-red-600" : ""}`}
+                value={priority}
+                onChange={(e) => setPriority(e.target.value)}
+                onFocus={handleFocus} // Optional: You can add this if you want to track focus
+                onClick={() => setIsClicked(true)} // Track when the select is clicked
+                required
+              >
+                <option className="text-red-950" value="" disabled hidden>
+                  Select Priority
+                </option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+
+              {hasError && (
+                <p className="text-red-500">Priority is required!</p>
+              )}
+            </fieldset>
           </div>
 
           <button
