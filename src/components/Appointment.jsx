@@ -52,12 +52,11 @@ const Appointment = ({ onClose }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-
   // Validate input on blur
   const handleBlur = () => {
     setIsFocused(false);
     if (!name.trim()) {
-      setHasError(true);  // Trigger error if name is empty
+      setHasError(true); // Trigger error if name is empty
     } else {
       setHasError(false); // Remove error if valid input
     }
@@ -115,36 +114,35 @@ const Appointment = ({ onClose }) => {
           </div>
           {/* Name */}
           <div className="mb-3">
-      <fieldset className={`border-2 rounded-lg p-2 ${isFocused ? 'border-[#F5821F]' : 'border-white'}`}>
-        {(isFocused || hasError) && (<legend className="px-1 text-[#F5821F]">Name</legend>)}
-        <input
-          type="text"
-          className={`w-full border rounded ${isFocused ? '' : 'p-2'}  transition-colors duration-200 ${
-            hasError ? 'border-red-500' : ""}  focus:outline-none focus:border-white focus:ring-2 focus:ring-[#f5831f00]`}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          placeholder={isFocused || hasError ? "" : "Name"}
-          onFocus={() => setIsFocused(true)}   
-          onBlur={handleBlur}   
-        />
-        {/* Display warning message */}
-        {hasError && (
-          <p className="text-red-500 text-sm mt-1">Please fill in the name.</p>
-        )}
-      </fieldset>
-    </div>
-          
-          {/* Mobile No. */}
-          <div className="mb-3">
-            <input
-              type="text"
-              className="w-full border rounded p-2"
-              value={mobile}
-              onChange={(e) => setMobile(e.target.value)}
-              required
-              placeholder="Mobile Number"
-            />
+            <fieldset
+              className={`border-2 rounded-lg p-2 ${
+                isFocused ? "border-[#F5821F]" : "border-white"
+              }`}
+            >
+              {(isFocused || hasError) && (
+                <legend className="px-1 text-[#F5821F]">Name</legend>
+              )}
+              <input
+                type="text"
+                className={`w-full border rounded ${
+                  isFocused ? "" : "p-2"
+                }  transition-colors duration-200 ${
+                  hasError ? "border-red-500" : ""
+                }  focus:outline-none focus:border-white focus:ring-2 focus:ring-[#f5831f00]`}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                placeholder={isFocused || hasError ? "" : "Name"}
+                onFocus={() => setIsFocused(true)}
+                onBlur={handleBlur}
+              />
+              {/* Display warning message */}
+              {hasError && (
+                <p className={`text-red-500 text-sm mt-1`}>
+                  Please fill in the name.
+                </p>
+              )}
+            </fieldset>
           </div>
 
           {/* Reason for Appointment */}
@@ -160,20 +158,20 @@ const Appointment = ({ onClose }) => {
           </div>
           {/* Priority */}
           <div className="mb-3">
-  <select
-    className="w-full border rounded p-2"
-    value={priority}
-    onChange={(e) => setPriority(e.target.value)}
-    required
-  >
-    <option value="" disabled hidden style={{ "color": '#D3D3D3' }}>
-      Select Priority
-    </option>
-    <option value="low">Low</option>
-    <option value="medium">Medium</option>
-    <option value="high">High</option>
-  </select>
-</div>
+            <select
+              className="w-full border rounded p-2"
+              value={priority}
+              onChange={(e) => setPriority(e.target.value)}
+              required
+            >
+              <option value="" disabled hidden style={{ color: "#D3D3D3" }}>
+                Select Priority
+              </option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
 
           <button
             type="submit"
