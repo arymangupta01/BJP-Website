@@ -10,21 +10,21 @@ const Journey = () => {
         "https://www.constitutionofindia.net/wp-content/uploads/2022/10/SPMookerjee.jpg",
       title: "Dr Syama Prasad Mookerjee",
       description:
-        "Dr Syama Prasad Mookerjee was born on 6 July 1901. He graduated from Calcutta University and became the fellow of the senate in 1923. In 1924 he enrolled himself as an advocate in Calcutta High court. Later on he left for England in 1926 and was admitted as a barrister from Lincoln’s Inn in 1927. Dr Syama Prasad Mookerjee was born on 6 July 1901. He graduated from Calcutta University and became the fellow of the senate in 1923. In 1924 he enrolled himself as an advocate. ",
+        "Dr Syama Prasad Mookerjee was born on 6 July 1901. He graduated from Calcutta University and became the fellow of the senate in 1923. In 1924 he enrolled himself as an advocate in Calcutta High court. Later on he left for England in 1926 and was admitted as a barrister from Lincoln’s Inn in 1927. Dr Syama Prasad Mookerjee was born on 6 July 1901. He graduated from Calcutta University and became the fellow of the senate in 1923. In 1924 he enrolled himself as an advocate.He graduated from Calcutta University and became the fellow of the senate in 1923. In 1924 he enrolled himself as an advocate. He graduated from Calcutta University. He graduated from Calcutta University and became the fellow of the senate in 1923. ",
     },
     {
       image:
         "https://www.bjp.org/files/photo-gallery/shri-atal-bihari-vajpayeeji-3_23.jpg",
       title: "Shri Atal Bihari Vajpayee",
       description:
-        "Atal Bihari Vajpayee was the eleventh Prime Minister of India from 16-31 May 1996 and he served again from 19 March 1998 to 13 May 2004. Born on 25 December 1924 in Gwalior, Madhya Pradesh, to Shri Krishna Bihari Vajpayee and Smt. Krishna Devi, Shri Vajpayee is a parliamentarian for over four decades. Shri Vajpayee, a leader of the center-right Bharatiya Janata Party (BJP) and is the only Prime Minister outside the Indian National Congress party to be serve for full term of five-years.",
+        "Atal Bihari Vajpayee was the eleventh Prime Minister of India from 16-31 May 1996 and he served again from 19 March 1998 to 13 May 2004. Born on 25 December 1924 in Gwalior, Madhya Pradesh, to Shri Krishna Bihari Vajpayee and Smt. Krishna Devi, Shri Vajpayee is a parliamentarian for over four decades. Shri Vajpayee, a leader of the center-right Bharatiya Janata Party (BJP) and is the only Prime Minister outside the Indian National Congress party to be serve for full term of five-years. He graduated from Calcutta University and became the fellow of the senate in 1923. In 1924 he enrolled himself as an advocate. He graduated from Calcutta University and became the fellow of the senate in 1923.",
     },
     {
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3H2C5NPOyUw6SQQY1tDyMUbDyUhgVOICkPg&s",
       title: "Shri Lal Krishna Advani",
       description:
-        "Lal Krishna Advani is an Indian politician and a senior leader of the Bharatiya Janata Party (BJP). Advani was born on 8 November 1927 in Karachi, to Kishanchand D Advani and Gyani Devi. Advani has worked as a volunteer of Rashtriya Swayamsevak Sangh, a right-wing Hindu nationalist organization. He became a member of Bharatiya Jana Sangh and after working for various positions in the Jana Sangh party, he became its President in 1973. He was also a member of Rajya Sabha from Gujarat from 1976 to 1982.",
+        "Lal Krishna Advani is an Indian politician and a senior leader of the Bharatiya Janata Party (BJP). Advani was born on 8 November 1927 in Karachi, to Kishanchand D Advani and Gyani Devi. Advani has worked as a volunteer of Rashtriya Swayamsevak Sangh, a right-wing Hindu nationalist organization. He became a member of Bharatiya Jana Sangh and after working for various positions in the Jana Sangh party, he became its President in 1973. He was also a member of Rajya Sabha from Gujarat from 1976 to 1982. He graduated from Calcutta University and became the fellow of the senate in 1923. In 1924 he enrolled himself as an advocate.He graduated from Calcutta University and became the fellow of the senate in 1923.",
     },
     {
       image:
@@ -74,7 +74,7 @@ const Journey = () => {
           return (
             <div className="">
               <div className="flip-card rounded-lg border-[1px] mx-4 border-gray-200 shadow-lg w-[345px] hover:h-screen mt-[60px] overflow-hidden">
-                <div className="flip-card-inner w-[100%]">
+                <div className="flip-card-inner w-[100%]  ">
                   <div className="relative w-[100%] flip-card-front bg-white">
                     <img
                       src={item.image}

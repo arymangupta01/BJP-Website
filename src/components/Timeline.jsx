@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaCircle } from "react-icons/fa";
 import { FaCirclePlay } from "react-icons/fa6";
 import { AiOutlineClose } from "react-icons/ai";
 
@@ -57,10 +56,11 @@ const Timeline = () => {
           </h2>
 
           {timelineData.map((item, index) => {
+            const isEven = index % 2 === 0;
             return (
-              <ul key={index}>
-                <li className="relative flex items-baseline gap-8 pb-[40px]">
-                  <div className="absolute -inset-20  h-[280px] w-[2px] bg-gray-400 mt-[180px] " onClick={() => handleVideoClick(item.videoLink)}>
+              <ul>
+                <li key={index} className="relative flex items-baseline gap-8 pb-[40px]">
+                  <div className="absolute -inset-20 mx-auto h-[285px] w-[2px] bg-gray-400 mt-[180px] " onClick={() => handleVideoClick(item.videoLink)}>
                     
                       <div className=" cursor-pointer transform w-[75px] h-[75px] rounded-full border-[6px] hover:bg-[#F5821F] border-[#F5821F] -translate-x-[37px] -translate-y-[90px] text-[#FBEBEA]"  ></div>
                       <FaCirclePlay
@@ -68,16 +68,16 @@ const Timeline = () => {
                         className="absolute cursor-pointer -top-[53px] transform -translate-x-1/2 -translate-y-1/2 hover:text-[#F5821F] text-[#F5821F]"
                       />
                     </div>
-                  <div>
-                    <p className="text-lg font-semibold text-gray-600">
+                  <div className={`flex flex-col relative  ${isEven ? "left-[220px]" : "right-[135px]" }  top-7 `}>
+                    <p className="text-lg font-semibold mx-auto text-gray-600">
                       {item.name}
                     </p>
                     <img
-                      className="rounded-lg w-52 h-[300px]"
+                      className="rounded-lg mx-auto w-52 h-[300px]"
                       src={item.image}
                       alt={item.name}
                     />
-                    <p className="text-sm font-semibold text-gray-600">
+                    <p className="text-sm font-semibold mx-auto text-gray-600">
                       {item.year}
                     </p>
                   </div>

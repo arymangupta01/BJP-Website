@@ -18,7 +18,7 @@ const PresidentPage = () => {
   };
 
   const [text] = useTypewriter({
-    words : ['Sabka Saath, Sabka Vikas','Beti Bachao, Beti Padhao', 'Swachh Bharat Abhiyan','Achhe Din Aane Wale Hain'],
+    words : [' Sabka Saath, Sabka Vikas','Beti Bachao, Beti Padhao', ' Swachh Bharat Abhiyan',' Achhe Din Aane Wale Hain'],
     loop : true,
     delay: 500,
   })
@@ -29,7 +29,7 @@ const PresidentPage = () => {
         {presidentData.map((item, index) => {
           return (
             <img
-              className=" opacity-40 flex justify-center items-center object-contain"
+              className=" opacity- flex justify-center items-center object-contain"
               key={index}
               src={ presidentImage}
               alt=""
@@ -41,17 +41,13 @@ const PresidentPage = () => {
 
       {/* Text Typewriter */}
 
-      <h1 className="font-semibold absolute bottom-[80%] -translate-x-[450px] right-0 text-center">
-          <span className='text-[#F5821F] text-8xl'>BJP</span> 
-          <span className='text-[#374151] text-6xl'> Says:</span>
-        </h1>
+      
 
-      <div className="absolute bottom-[70%] -translate-x-[250px] right-0 text-center">
-        <h1>
-          <span className='text-5xl font-thin text-[#F6BC5E]'>{text}
-            
-          </span>
-          <span className='text-5xl text-[#F5821F]'><Cursor  /></span>
+      <div className="absolute bottom-[50%] right-0 left-0 text-center ">
+        <h1 className='inline-flex items-center rounded-md bg-white bg-opacity-60 p-2 pb-4'>
+          <span className='text-7xl font-semibold  text-white ' style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }} >BJP Says:</span>
+          <span className='text-7xl font-semibold  text-[#F5821F]' style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }} > {text}</span>
+          <span className='text-7xl font-semibold  text-[#F5821F]' style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }} ><Cursor  /></span>
         </h1>
       </div>
 
