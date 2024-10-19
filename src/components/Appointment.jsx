@@ -5,41 +5,72 @@ import { FaSmile } from "react-icons/fa";
 import "../App.css";
 
 const Appointment = ({ onClose }) => {
-  const [reason, setReason] = useState("");
   const [priority, setPriority] = useState("");
   const [timeSlot, setTimeSlot] = useState("");
   const [date, setDate] = useState(new Date());
   const [selectedSlot, setSelectedSlot] = useState(null);
-  const [isClicked, setIsClicked] = useState(false);
-  const [hasError, setHasError] = useState(false);
-  const [inputValue, setInputValue] = useState("");
-
-  const onChange = (newDate) => {
-    setDate(newDate);
-  };
+  const [inputName, setInputName] = useState("");
+  const [isNameClicked, setIsNameClicked] = useState(false);
+  const [hasNameError, setHasNameError] = useState(false);
+  const [inputAppointment, setInputAppointment] = useState("");
+  const [isAppointmentClicked, setIsAppointmentClicked] = useState(false);
+  const [hasAppointmentError, setHasAppointmentError] = useState(false);
+  const [isPriorityClicked, setIsPriorityClicked] = useState(false);
+  const [hasPriorityError, setHasPriorityError] = useState(false);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(
-      `Appointment Booked! \nName: ${inputValue} \nDate: ${date} \nReason: ${reason} \nPriority: ${priority} \nTime Slot: ${timeSlot}`
+      `Appointment Booked! \nName: ${inputName} \nDate: ${date}  \nPriority: ${priority} \nTime Slot: ${timeSlot}`
     );
     onClose();
   };
 
-  const handleBlur = () => {
-    if (!inputValue.trim()) {
-      setHasError(true);
-      setIsClicked(false);
+  const handleNameBlur = () => {
+    if (!inputName.trim()) {
+      setHasNameError(true);
+      setIsNameClicked(false);
     } else {
-      setIsClicked(false);
-      setHasError(false);
+      setIsNameClicked(false);
+      setHasNameError(false);
     }
   };
 
-  const handleFocus = () => {
-    setIsClicked(true);
-    setHasError(false);
+  const handleNameFocus = () => {
+    setIsNameClicked(true);
+    setHasNameError(false);
   };
+
+  const handleAppointmentBlur = () => {
+    if (!inputAppointment.trim()) {
+      setHasAppointmentError(true);
+      setIsAppointmentClicked(false);
+    } else {
+      setIsAppointmentClicked(false);
+      setHasAppointmentError(false);
+    }
+  };
+
+  const handleAppointmentFocus = () => {
+    setIsAppointmentClicked(true);
+    setHasAppointmentError(false);
+  };
+
+  const handlePriorityBlur = () => {
+    if (!priority.trim()) {
+      setHasPriorityError(true);
+      setIsPriorityClicked(false);
+    } else {
+      setIsPriorityClicked(false);
+      setHasPriorityError(false);
+    }
+  };
+
+  const handlePriorityFocus = () => {
+    setIsPriorityClicked(true);
+    setHasPriorityError(false);
+  }
 
   const timeSlots = [
     { id: 1, time: "10:00 - 12:00 PM" },
@@ -47,17 +78,21 @@ const Appointment = ({ onClose }) => {
     { id: 3, time: "12:00 - 2:00 PM" },
   ];
 
+  const onChange = (newDate) => {
+    setDate(newDate);
+  };
+
   const formatShortWeekday = (locale, date) => {
     return date.toLocaleDateString(locale, { weekday: "short" }).charAt(0);
   };
 
   return (
     <div
-      className="fixed inset-0 flex z-50 bg-black bg-opacity-50 overflow-y-scroll overflow-x-hidden h-full"
+      className="fixed inset-0 flex items-start z-50 bg-black bg-opacity-50 overflow-y-scroll overflow-x-hidden"
       onClick={onClose}
     >
       <div
-        className="bg-white p-5 shadow-md w-full h-[110%] max-w-md"
+        className="bg-white p-5 shadow-md max-w-md"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex mb-4">
@@ -66,7 +101,7 @@ const Appointment = ({ onClose }) => {
           </h2>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form className="h-screen" onSubmit={handleSubmit}>
           {/* Calendar */}
           <div className="w-[420px] mb-4 mx-[20px] font-light">
             <Calendar
@@ -89,6 +124,7 @@ const Appointment = ({ onClose }) => {
                   <div
                     key={slot.id}
                     onClick={() => setSelectedSlot(slot.id)}
+                    onChange={(e) => setTimeSlot(e.target.value)}
                     className={`flex items-center cursor-pointer px-3 py-2 rounded-full border-[1px] transition-colors
                   ${
                     selectedSlot === slot.id
@@ -108,34 +144,34 @@ const Appointment = ({ onClose }) => {
           <div className="mb-4 ">
             <fieldset
               className={`border-2 w-[400px]  rounded-md ${
-                isClicked ? "border-[#f5821F]" : hasError ? "border-white" : ""
+                isNameClicked ? "border-[#f5821F]" : hasNameError ? "border-white" : ""
               }`}
             >
-              {isClicked && !hasError ? (
+              {isNameClicked && !hasNameError ? (
                 <legend className="mx-3 text-[#F5821F]">Name</legend>
               ) : null}
 
               <input
                 className={`p-2 w-[400px] border-[1px] rounded-md ${
-                  isClicked ? "border-white" : "border-black"
+                  isNameClicked ? "border-white" : "border-black"
                 }          focus:outline-none ${
-                  hasError ? "border-red-600" : ""
+                  hasNameError ? "border-red-600" : ""
                 } ${
-                  hasError
+                  hasNameError
                     ? "placeholder:text-red-600"
                     : "placeholder:text-gray-800"
                 } `}
                 type="text"
                 required
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onFocus={handleFocus}
-                onClick={() => setIsClicked(true)}
-                onBlur={() => handleBlur()}
-                placeholder={isClicked && !hasError ? "" : "Name"}
+                value={inputName}
+                onChange={(e) => setInputName(e.target.value)}
+                onFocus={handleNameFocus}
+                onClick={() => setIsNameClicked(true)}
+                onBlur={() => handleNameBlur()}
+                placeholder={isNameClicked && !hasNameError ? "" : "Name"}
               />
 
-              {hasError && <p className="text-red-500">Name is required!</p>}
+              {hasNameError && <p className="text-red-500">Name is required!</p>}
             </fieldset>
           </div>
 
@@ -143,10 +179,10 @@ const Appointment = ({ onClose }) => {
           <div className="mb-4 ">
             <fieldset
               className={`border-2 w-[400px] rounded-md ${
-                isClicked ? "border-[#f5821F]" : hasError ? "border-white" : ""
+                isAppointmentClicked ? "border-[#f5821F]" : hasAppointmentError ? "border-white" : ""
               }`}
             >
-              {isClicked && !hasError ? (
+              {isAppointmentClicked && !hasAppointmentError ? (
                 <legend className="mx-3 text-[#F5821F]">
                   Reason for Appointment
                 </legend>
@@ -154,27 +190,27 @@ const Appointment = ({ onClose }) => {
 
               <input
                 className={`p-2 w-[400px] border-[1px] rounded-md ${
-                  isClicked ? "border-white" : "border-black"
+                  isAppointmentClicked ? "border-white" : "border-black"
                 }          focus:outline-none ${
-                  hasError ? "border-red-600" : ""
+                  hasAppointmentError ? "border-red-600" : ""
                 } ${
-                  hasError
+                  hasAppointmentError
                     ? "placeholder:text-red-600"
                     : "placeholder:text-gray-800"
                 } `}
                 type="text"
                 required
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onFocus={handleFocus}
-                onClick={() => setIsClicked(true)}
-                onBlur={() => handleBlur()}
+                value={inputAppointment}
+                onChange={(e) => setInputAppointment(e.target.value)}
+                onFocus={handleAppointmentFocus}
+                onClick={() => setIsAppointmentClicked(true)}
+                onBlur={() =>  handleAppointmentBlur()}
                 placeholder={
-                  isClicked && !hasError ? "" : "Reason for Appointment"
+                  isAppointmentClicked && !hasAppointmentError ? "" : "Reason for Appointment"
                 }
               />
 
-              {hasError && (
+              {hasAppointmentError && (
                 <p className="text-red-500">
                   Reason for appointment is required!
                 </p>
@@ -186,24 +222,25 @@ const Appointment = ({ onClose }) => {
           <div className="mb-4">
             <fieldset
               className={`border-[1px] w-[400px] rounded-md ${
-                isClicked ? "border-[#f5821F]" : hasError ? "border-white" : ""
+                isPriorityClicked ? "border-[#f5821F]" : hasPriorityError ? "border-white" : ""
               }`}
             >
-              {isClicked && !hasError ? (
+              {isPriorityClicked && !hasPriorityError ? (
                 <legend className="mx-3 text-[#F5821F]">Priority</legend>
               ) : null}
 
               <select
                 className={`w-full border rounded p-2 ${
-                  isClicked ? "border-white" : "border-black"
-                } ${hasError ? "border-red-600" : ""}`}
+                  isPriorityClicked ? "border-white" : "border-black"
+                } ${hasPriorityError ? "border-red-600" : ""}  ${hasPriorityError ? "text-red-500" : "text-gray-800" }`}
                 value={priority}
                 onChange={(e) => setPriority(e.target.value)}
-                onFocus={handleFocus} // Optional: You can add this if you want to track focus
-                onClick={() => setIsClicked(true)} // Track when the select is clicked
+                onFocus={handlePriorityFocus} 
+                onClick={() => setIsPriorityClicked(true)} 
+                onBlur={() => handlePriorityBlur()}
                 required
               >
-                <option className="text-red-950" value="" disabled hidden>
+                <option value="" disabled hidden>
                   Select Priority
                 </option>
                 <option value="low">Low</option>
@@ -211,7 +248,7 @@ const Appointment = ({ onClose }) => {
                 <option value="high">High</option>
               </select>
 
-              {hasError && (
+              {hasPriorityError && (
                 <p className="text-red-500">Priority is required!</p>
               )}
             </fieldset>

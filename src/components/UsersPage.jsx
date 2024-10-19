@@ -162,7 +162,7 @@ const UsersPage = () => {
             <div className="flex gap-4 px-2 py-3 rounded-full">
               <img
                 className="rounded-full border-2 border-gray-300 w-[120px] h-[120px]"
-                src="https://yt3.googleusercontent.com/rOxmp7jqiqRmG4SXcUcyiGpldwzWE7k49DrEkjUH_QjPEHNM6prk5bXl4upySUfAZL_18qSJZg=s900-c-k-c0x00ffffff-no-rj"
+                src="https://www.amitshah.co.in/storage/uploads/1/1679578400-641c55204809a.png"
                 alt="Amit Shah"
               />
               <h1 className="flex font-semibold text-xl items-center justify-center">
@@ -266,11 +266,11 @@ const UsersPage = () => {
           </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto no-scrollbar ">
-          <div className="px-5 py-5 mt-5 rounded-md w-[732px] border-[1px] shadow-lg border-gray-300">
+        <div className="flex-1 ml-2 overflow-y-auto no-scrollbar ">
+          <div className="px-5 py-5 mt-5 rounded-md w-[724px] border-[1px] shadow-lg border-gray-300">
             <div className="flex">
               <input
-                className="w-[750px] h-[50px] border-[1px] border-[#F5821F] focus:border-[#F5821F] rounded-md transition-colors duration-500"
+                className="w-[750px] h-[50px] border-[1px] border-[#F5821F] focus:border-[#F5821F] rounded-md transition-colors duration-500 "
                 type="text"
                 onChange={handleMessageChange}
                 placeholder="Enter a message for the post"
@@ -352,7 +352,7 @@ const UsersPage = () => {
             </div>
           </div>
 
-          <div className=" w-[732px] h-[180px] flex gap-10 items-center justify-around">
+          <div className=" w-[724px] h-[180px] flex gap-10 items-center justify-around">
             <div>
               <FaHeart className="ml-3 mb-2" size={30} color="#FD4FB3" />
               <h1 className="font-bold text-3xl">16K</h1>
@@ -401,7 +401,7 @@ const UsersPage = () => {
           {usersData.map((item, index) => (
             <div
               key={index}
-              className="shadow-lg rounded-md border-[1px] border-gray-300 w-[732px] mb-6"
+              className="shadow-lg rounded-md border-[1px] border-gray-300 w-[724px] mb-6"
             >
               <div className="flex items-center px-4 py-4 gap-4">
                 <div className="rounded-full w-[40px] h-[40px] bg-[#F5821F]">
